@@ -479,9 +479,9 @@
 //  #define DEFAULT_Ki 1.54
  // #define DEFAULT_Kd 76.55
 
-#define DEFAULT_Kp 21.48
-#define DEFAULT_Ki 1.42
-#define DEFAULT_Kd 81.37
+#define DEFAULT_Kp 22.02
+#define DEFAULT_Ki 1.39
+#define DEFAULT_Kd 87.38
 
   // Ultimaker
   //#define DEFAULT_Kp 22.2
@@ -921,7 +921,7 @@
 #define X_NOZZLE_TO_PROBE_OFFSET 32 // X offset: -left  +right  [of the nozzle]
 #define Y_NOZZLE_TO_PROBE_OFFSET -2  // Y offset: -front +behind [the nozzle]
 //#define Z_PROBE_OFFSET_FROM_EXTRUDER -3.1   // Z offset: -below +above  [the nozzle]
-#define Z_NOZZLE_TO_PROBE_OFFSET 0    
+#define Z_NOZZLE_TO_PROBE_OFFSET -1.56    
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 20
 
