@@ -901,11 +901,10 @@
 
 /**
  * Z Probe to nozzle (X,Y) offset, relative to (0, 0).
- * X and Y offsets must be integers.
  *
  * In the following example the X and Y offsets are both positive:
- * #define X_PROBE_OFFSET_FROM_EXTRUDER 10
- * #define Y_PROBE_OFFSET_FROM_EXTRUDER 10
+ *
+ *   #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
  *
  *     +-- BACK ---+
  *     |           |
@@ -917,11 +916,12 @@
  *     |           |
  *     O-- FRONT --+
  *   (0,0)
+ *
+ * Specify a Probe position as { X, Y, Z }
  */
-#define X_NOZZLE_TO_PROBE_OFFSET 32 // X offset: -left  +right  [of the nozzle]
-#define Y_NOZZLE_TO_PROBE_OFFSET -2  // Y offset: -front +behind [the nozzle]
-//#define Z_PROBE_OFFSET_FROM_EXTRUDER -3.1   // Z offset: -below +above  [the nozzle]
-#define Z_NOZZLE_TO_PROBE_OFFSET -1.56    
+#define NOZZLE_TO_PROBE_OFFSET { 32, -2, -1.56 }
+
+ 
 // Certain types of probes need to stay away from edges
 #define MIN_PROBE_EDGE 20
 
@@ -1213,13 +1213,10 @@
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
-  //#define LEFT_PROBE_BED_POSITION MIN_PROBE_EDGE
-  //#define RIGHT_PROBE_BED_POSITION (X_BED_SIZE - (MIN_PROBE_EDGE) + (X_PROBE_OFFSET_FROM_EXTRUDER) )
-  //#define FRONT_PROBE_BED_POSITION MIN_PROBE_EDGE 
-  //#define BACK_PROBE_BED_POSITION (Y_BED_SIZE - (MIN_PROBE_EDGE))
 
   // Probe along the Y axis, advancing X after each column
   //#define PROBE_Y_FIRST
+
 
   #if ENABLED(AUTO_BED_LEVELING_BILINEAR)
 

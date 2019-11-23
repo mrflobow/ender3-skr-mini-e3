@@ -1321,6 +1321,31 @@
 
 #endif
 
+
+/**
+ * Override MIN_PROBE_EDGE for each side of the build plate
+ * Useful to get probe points to exact positions on targets or
+ * to allow leveling to avoid plate clamps on only specific
+ * sides of the bed.
+ *
+ * If you are replacing the prior *_PROBE_BED_POSITION options,
+ * LEFT and FRONT values in most cases will map directly over
+ * RIGHT and REAR would be the inverse such as
+ * (X/Y_BED_SIZE - RIGHT/BACK_PROBE_BED_POSITION)
+ *
+ * This will allow all positions to match at compilation, however
+ * should the probe position be modified with M851XY then the
+ * probe points will follow. This prevents any change from causing
+ * the probe to be unable to reach any points.
+ */
+#if PROBE_SELECTED && !IS_KINEMATIC
+  //#define MIN_PROBE_EDGE_LEFT MIN_PROBE_EDGE
+  #define MIN_PROBE_EDGE_RIGHT MIN_PROBE_EDGE +32
+  //#define MIN_PROBE_EDGE_FRONT MIN_PROBE_EDGE
+  #define MIN_PROBE_EDGE_BACK MIN_PROBE_EDGE-2
+#endif
+
+
 // @section extras
 
 //
